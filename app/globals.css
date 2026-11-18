@@ -1,28 +1,15 @@
 @import "tailwindcss";
 
-/* Lighter gold for text on dark ground: #ca8a04 is 5.95:1 on #1c1917 (AA
-   pass). #a16207 on dark is only 3.55:1. */
 @theme {
-  --color-background: #fafaf9;
-  --color-primary: #1c1917;
-  --color-foreground: #0c0a09;
-  --color-secondary: #44403c;
-  --color-accent: #a16207;
-  --color-accent-on-dark: #ca8a04;
-  --color-card: #ffffff;
-  --color-muted-foreground: #475569;
-  --color-border: #d6d3d1;
+  --color-background: #f1f0ec;
+  --color-surface: #ededea;
+  --color-primary: #121212;
+  --color-obsidian: #050108;
+  --color-copper: #c27350;
+  --color-violet: #7b44c9;
+  --color-violet-soft: #b48cf0;
 
-  --font-display: var(--font-cormorant), Georgia, serif;
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-
-  --animate-spin-slow: spin-slow 90s linear infinite;
-
-  @keyframes spin-slow {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -30,21 +17,15 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  background-color: #f1f0ec;
+  color: #121212;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: #a16207;
+  background-color: #0d9488;
   color: #ffffff;
-}
-
-:focus-visible {
-  outline: 2px solid #a16207;
-  outline-offset: 3px;
-  border-radius: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {

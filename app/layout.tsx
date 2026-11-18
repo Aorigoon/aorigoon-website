@@ -1,77 +1,48 @@
 import type { Metadata } from "next";
-import { Cormorant, Montserrat } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
+import "@astryxdesign/core/reset.css";
+import "@astryxdesign/core/astryx.css";
+import { Theme } from "@astryxdesign/core/theme";
+import { themes, defaultThemeSlug } from "../astryx-themes";
 import "./globals.css";
 
-const cormorant = Cormorant({
-  variable: "--font-cormorant",
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
-
-// Preview URL — the canonical moves to the custom domain when it lands.
-const siteUrl = "https://aorigoon-website.aorigoon.workers.dev";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Aorigoon — Apps and small AI models, built from scratch",
+  title: "Your notion, built | Notiune",
   description:
-    "Aorigoon is a small studio that designs and builds apps and trains small AI models from scratch for the real world.",
-  alternates: { canonical: "/" },
+    "A studio of three that designs, writes and builds websites, brands and software for small businesses. You own all of it. We reply within hours.",
   openGraph: {
     type: "website",
-    url: "/",
-    siteName: "Aorigoon",
-    title: "Aorigoon — Apps and small AI models, built from scratch",
+    siteName: "Notiune",
+    title: "Your notion, built | Notiune",
     description:
-      "Aorigoon is a small studio that designs and builds apps and trains small AI models from scratch for the real world.",
+      "Websites, brands and software for small businesses, designed, written and built from scratch by a studio of three.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Aorigoon — Apps and small AI models, built from scratch",
-    description:
-      "Aorigoon is a small studio that designs and builds apps and trains small AI models from scratch for the real world.",
-  },
-  robots: { index: true, follow: true },
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Aorigoon",
-  url: siteUrl,
-  email: "hello@aorigoon.com",
-  description:
-    "Aorigoon is a small studio that designs and builds apps and trains small AI models from scratch for the real world.",
-};
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${cormorant.variable} ${montserrat.variable} h-full`}
-    >
-      <body className="min-h-full bg-background font-sans text-primary antialiased">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-primary focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-white"
-        >
-          Skip to content
-        </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
-        />
-        {children}
+    <html lang="en" className={`${schibsted.variable} h-full`}>
+      <body className="min-h-full bg-[#F1F0EC] font-sans text-[#121212] antialiased">
+        <Theme theme={themes[defaultThemeSlug]}>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-[#121212] focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-[#F1F0EC]"
+          >
+            Skip to content
+          </a>
+          {children}
+        </Theme>
       </body>
     </html>
   );
