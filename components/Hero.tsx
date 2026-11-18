@@ -364,10 +364,13 @@ export function Hero() {
                 x2="100%"
                 y2="50%"
               >
+                {/* Ribbon fades teal -> black: the last line (right down-line,
+                    x=1045, ~44% of the path bbox) and the tail are black. */}
                 <stop offset="0%" stopColor="#047857" />
-                <stop offset="45%" stopColor="#0D9488" />
-                <stop offset="78%" stopColor="#0284C7" />
-                <stop offset="100%" stopColor="#1D4ED8" />
+                <stop offset="30%" stopColor="#0D9488" />
+                <stop offset="38%" stopColor="#0F766E" />
+                <stop offset="44%" stopColor="#121212" />
+                <stop offset="100%" stopColor="#121212" />
               </linearGradient>
               <filter
                 id="ribbon-shadow"
